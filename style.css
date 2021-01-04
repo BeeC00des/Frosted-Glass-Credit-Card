@@ -1,0 +1,123 @@
+/* import credit card font from google font */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;600;800;900&display=swap');  
+
+/*remove default margin and padding from this page */
+* {
+   margin: 0;
+   padding: 0;
+ }
+
+/* style the whole page */
+ body{
+   background-color: #000;
+   font-family : 'Inconsolata', monospace;
+   min-height: 100vh;
+   display:grid;
+   place-items: center;
+ }
+
+/* it holds the two rotating ball with pseudo class */
+ .holder{
+   position: relative;
+ }
+
+ .holder:before,
+ .holder:after{
+    content:'';
+    height:100px;
+    width:100px;
+    border-radius: 50%;
+    position: absolute;
+    animation: orbit 5s linear infinite;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2); /* blur-radius of 1rem and color opacity of 0.2 */
+ }
+ .holder:before{
+    height:200px;
+    width:200px;
+    animation-delay:1s;   /* a hold for 2s */
+    background: #ffe897;
+    background: -moz-radial-gradient(top right, #ffe897, #f98a05); /* a circular pattern gradient of to two and different positioning */
+    background: radial-gradient(to bottom left, #ffe897, #f98a05); /* for different browser and offset to the right side */
+    background: -webkit-radial-gradient(top right, #ffe897, #f98a05);
+    left:-50px;
+    top:-60px
+ }
+
+ .holder:after{
+   animation-delay: 2s; /* a hold for 2s */
+   background:#e0e793;
+   background: -moz-radial-gradient(bottom right, #e0e793, #6dd0f1);
+   background: radial-gradient(to top left, #e0e793, #6dd0f1);
+   background: -webkit-radial-gradient(bottom right, #e0e793, #6dd0f1);
+   top:150px;
+   right:-50px;
+   z-index:-1;  /* put the circle behind chrome support stack inward */
+}
+
+ .card{
+    width:370px;
+    height:220px;
+    border-radius: 15px;
+    box-shadow:0 0 1rem 0 rgba(0,0,0,0.2);
+    font-size:1.6rem; 
+    overflow: hidden;
+    position: relative;  
+ }
+
+ .card:before{
+    background-color: rgba(255, 255, 255, 0.007);
+    backdrop-filter: blur(5px) saturate(100%) contrast(45%) brightness(100%); /* add filter effect on the card */
+    content:'';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+ }
+ .card_text{
+    color:#A4ACB7;
+    margin-left: 30px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2; /* put card text above card */
+ }
+ .card_title{
+    font-size:1.5rem;
+    font-weight:400;
+    margin-bottom: 60px;
+ }
+ .card_nos{
+    font-size:0.9rem;
+    color:#fff;
+ }
+ .card_date{
+    padding-left: 70px;
+    color:#fff;
+    font-size:1rem;
+ }
+
+ .small-text{
+    font-size: 0.65rem;
+    color:#000; 
+    display: inline;
+ }
+ .card svg{
+    bottom:10px;
+    position: absolute;
+    right:25px;
+}
+
+ /* two step animation from to */ 
+@keyframes orbit{
+   from{
+      transform:rotate(0deg) translateX(100px) rotate(0deg) ;
+   }
+   to{
+      transform:rotate(360deg) translateX(100px) rotate(-360deg) ;
+   }
+}
+
+
+/* @media (max-width:796px){ */
+   /* body .holder{ */
+      /* margin:auto; */
+   /* } */
+/* } */
