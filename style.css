@@ -155,19 +155,19 @@
          transform:rotate(360deg) translateX(80px) rotate(-360deg) ;
       }
    }
-   /* .card{ */
-      /* width:330px; */
-   /* } */
+   .card{
+      width:330px;
+   }
 }
 
-@media (max-width:375px){
+@media (max-width:350px){
    .holder:after{
       top:160px;
    }
-   /* .card{ */
-      /* width:300px; */
-      /* height:200px; */
-   /* } */
+   .card{
+      width:300px;
+      height:200px;
+   }
    .card svg{
       bottom:0;
       position: absolute;
